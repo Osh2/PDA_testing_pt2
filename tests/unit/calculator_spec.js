@@ -52,9 +52,13 @@ describe('calculator', function () {
   });
 
   it('should clear the running total without affecting the calculation', function(){
+    calculator.runningTotal = 3;
+    calculator.operatorClick('+')
     calculator.runningTotal = 5;
     calculator.clearClick();
-    assert.strictEqual(calculator.runningTotal, 0);
+    calculator.runningTotal = 10
+    calculator.operatorClick('=')
+    assert.strictEqual(calculator.runningTotal, 13);
   });
 
 });
